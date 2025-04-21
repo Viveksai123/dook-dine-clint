@@ -33,8 +33,9 @@ const AuthState = props => {
 
     try {
       // Use the backend URL from environment or default to local
-const baseURL = process.env.REACT_APP_API_URL || '';
-const res = await axios.get(${baseURL}/api/auth);
+     
+      const baseURL = process.env.REACT_APP_API_URL || '';
+const res = await axios.get(`${baseURL}/api/auth`);
 
       dispatch({
         type: USER_LOADED,
@@ -55,7 +56,7 @@ const res = await axios.get(${baseURL}/api/auth);
 
     try {
       const baseURL = process.env.REACT_APP_API_URL || '';
-const res = await axios.post(${baseURL}/api/users, formData, config);
+      const res = await axios.post(`${baseURL}/api/users`, formData, config);
 
       dispatch({
         type: REGISTER_SUCCESS,
@@ -81,7 +82,7 @@ const res = await axios.post(${baseURL}/api/users, formData, config);
 
     try {
       const baseURL = process.env.REACT_APP_API_URL || '';
-const res = await axios.post(${baseURL}/api/auth, formData, config);
+const res = await axios.post(`${baseURL}/api/auth`, formData, config);
 
       dispatch({
         type: LOGIN_SUCCESS,
@@ -124,3 +125,4 @@ const res = await axios.post(${baseURL}/api/auth, formData, config);
 };
 
 export default AuthState;
+
